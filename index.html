@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ขอเป็นจิ้งจกในชีวิตคุณได้มั้ย?</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive;
+      background-color: #fcefee;
+    }
+    .container {
+      text-align: center;
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    h1 {
+      font-size: 2rem;
+      color: #ff4757;
+    }
+    img {
+      width: 250px;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .yes-btn {
+      background-color: #2ed573;
+      color: #fff;
+    }
+    .no-btn {
+      background-color: #ff6b81;
+      color: #fff;
+    }
+    button:hover {
+      transform: scale(1.1);
+    }
+    .long-text {
+      font-size: 1.2rem;
+      margin-top: 30px;
+      color: #555;
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>ขอเป็นจิ้งจกในชีวิตคุณได้มั้ย? 🥰</h1>
+    <img src="https://tenor.com/view/freaky-sonic-sonic-the-hedgehog-sped-up-sonic-sonic-exe-gif-14436121552651885075.gif" alt="Sonic Gif">
+    <div>
+      <button class="yes-btn" onclick="yesResponse()">ได้สิ! 🤗</button>
+      <button class="no-btn" id="noButton" onclick="noResponse()">ไม่เอา! 😝</button>
+    </div>
+  </div>
+
+  <script>
+    let noCounter = 0; // ตัวนับจำนวนการกด "ไม่"
+    const noButton = document.getElementById("noButton");
+
+    function yesResponse() {
+      document.body.innerHTML = `
+        <div style="text-align: center; margin-top: 50px;">
+          <h1 style="color: #2ed573;">เย้! ต่อไปนี้จะเป็นจิ้งจกที่ดีที่สุดเลยนะ! 🥰</h1>
+          <img src="https://tenor.com/mKNGkyOGX0G.gif" alt="Happy GIF" width="250">
+          <div class="long-text">
+            <p>จากนี้ไป ฉันจะเป็นจิ้งจกที่พร้อมอยู่ข้างๆ คุณในทุกๆ ช่วงเวลา ทุกๆ ความสนุก ทุกๆ การเดินทาง ความท้าทาย และความฝัน</p>
+            <p>ไม่ว่าจะเจออะไร ฉันก็จะยืนเคียงข้างคุณ มอบความรักและกำลังใจให้กับคุณเสมอไป</p>
+            <p>แม้ในวันที่คุณรู้สึกท้อหรือเหนื่อยล้า จิ้งจกตัวนี้ก็จะอยู่ที่นี่ให้คุณรู้สึกได้ถึงความรักและการสนับสนุนที่ไม่มีวันหมด</p>
+            <p>ขอบคุณที่ให้โอกาสจิ้งจกตัวนี้เป็นส่วนหนึ่งในชีวิตของคุณ... ฉันสัญญาว่าจะดูแลคุณในทุกๆ การเดินทางที่เราจะร่วมกันเดินไป</p>
+          </div>
+        </div>
+      `;
+    }
+
+    function noResponse() {
+      noCounter++;
+      const messages = [
+        "แน่ใจหรอ? 😢",
+        "คิดให้ดี ๆ นะ! 🥺",
+        "ไม่ให้กดนะ! ย้อนกลับไปเดี๋ยวนี้ >:O",
+        "ยอมก็ได้! เดี๋ยวเราโตกว่านี้แล้วจะกลับมาถามใหม่ 😤"
+      ];
+
+      if (noCounter < messages.length) {
+        noButton.innerText = messages[noCounter]; // เปลี่ยนข้อความบนปุ่ม "ไม่"
+      } else {
+        alert("ยอมก็ได้...เดี๋ยวโตกว่านี้จะกลับมาถามใหม่! 😤");
+        noButton.style.display = "none"; // ซ่อนปุ่ม "ไม่"
+        document.body.innerHTML += `
+          <img src="https://tenor.com/view/sad-alone-sad-person-alone-cradle-sitting-along-in-corner-gif-11206167521557372047.gif" alt="Sad Gif" width="250">
+        `;
+      }
+    }
+  </script>
+</body>
+</html>
